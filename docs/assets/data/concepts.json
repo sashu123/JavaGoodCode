@@ -1,0 +1,5 @@
+[
+  { "name": "java8", "active": false },
+  { "name": "Collection", "active": false },
+  { "name": "Junit", "active": false }
+]
