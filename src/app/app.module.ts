@@ -12,9 +12,9 @@ import { DataLoader } from './data-loader';
 
 export let InjectorInstance: Injector;
 @NgModule({
-  declarations: [AppComponent, OverviewComponent, DataLoader],
+  declarations: [AppComponent, OverviewComponent],
   imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
-  providers: [],
+  providers: [DataLoader],
   bootstrap: [AppComponent],
 })
 export class AppModule {

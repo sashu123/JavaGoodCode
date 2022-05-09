@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataLoader } from './data-loader';
 import { Concept } from './models/concept';
 
 @Component({
@@ -7,11 +8,7 @@ import { Concept } from './models/concept';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  subModules: Concept[] = [
-    AppComponent.getDefaultConcept(),
-    { name: 'Collection', active: false },
-    { name: 'Junit', active: false },
-  ];
+  subModules: Concept[] = DataLoader.getConcepts();
   currentConcept: Concept = AppComponent.getDefaultConcept();
 
   static getDefaultConcept(): Concept {

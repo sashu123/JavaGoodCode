@@ -1,11 +1,24 @@
 import { HttpClient, HttpResponse } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { InjectorInstance } from './app.module';
+import { Concept } from './models/concept';
 import { Overview } from './models/Overview';
 
-@Component({ template: '' })
+@Injectable({
+  providedIn: 'root',
+})
 export class DataLoader {
+  static subModules: Concept[] = [
+    { name: 'java8', active: true },
+    { name: 'Collection', active: false },
+    { name: 'Junit', active: false },
+  ];
+
+  static getConcepts():Concept[] {
+    return this.subModules;
+  }
+
   constructor() {}
   ngOnInit() {
     DataLoader.getOverview('java8');
