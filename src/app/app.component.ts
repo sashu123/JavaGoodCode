@@ -8,13 +8,13 @@ import { Concept } from './models/concept';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  subModules: Concept[] = [{ name: '', active: false }];
+  concepts: Concept[] = [{ name: '', active: false }];
   currentConcept: Concept = AppComponent.getDefaultConcept();
 
   ngOnInit() {
     DataLoader.getConcepts().subscribe((data: Concept[]) => {
       console.log(data);
-      this.subModules = data;
+      this.concepts = data;
     });
   }
 
@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
       return;
     }
     this.currentConcept = subModule;
-    this.subModules.forEach(function (item) {
+    this.concepts.forEach(function (item) {
       let isCurrentItem = item.name == subModule.name;
       if (isCurrentItem) {
         item.active = true;

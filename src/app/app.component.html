@@ -1,17 +1,17 @@
 <div
   class="container-fluid"
-  *ngIf="subModules[0].name != ''"
+  *ngIf="concepts[0].name != ''"
 >
   <div class="row">
     <div class="col-3 pe-0">
       <ul>
         <li
           class="active"
-          (click)="activateClass(subModule)"
-          *ngFor="let subModule of subModules"
-          [ngClass]="{ active: subModule.active }"
+          (click)="activateClass(concept)"
+          *ngFor="let concept of concepts"
+          [ngClass]="{ active: concept.active }"
         >
-          {{ subModule.name }}
+          {{ concept.name }}
         </li>
       </ul>
     </div>
