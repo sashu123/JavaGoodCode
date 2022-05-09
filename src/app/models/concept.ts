@@ -1,4 +1,4 @@
 export interface Concept {
-  name: String;
+  name: string;
   active: boolean;
 }
