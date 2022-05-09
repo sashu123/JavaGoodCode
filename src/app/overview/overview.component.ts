@@ -5,11 +5,11 @@ import { Concept } from '../models/concept';
 import { Overview } from '../models/Overview';
 
 @Component({
-  selector: 'app-content-nav',
-  templateUrl: './content-nav.component.html',
-  styleUrls: ['./content-nav.component.css'],
+  selector: 'overview',
+  templateUrl: './overview.component.html',
+  styleUrls: ['./overview.component.css'],
 })
-export class ContentNavComponent implements OnInit {
+export class OverViewComponent implements OnInit {
   @Input() concept: Concept = AppComponent.getDefaultConcept();
   overview: Overview = { title: '', features: [] };
   constructor() {}

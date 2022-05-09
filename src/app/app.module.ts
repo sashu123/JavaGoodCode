@@ -4,15 +4,16 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ContentNavComponent } from './content-nav/content-nav.component';
+
 import { HttpClientModule } from '@angular/common/http';
 
 import { Injector } from '@angular/core';
 import { DataLoader } from './data-loader';
+import { OverViewComponent } from './overview/overview.component';
 
 export let InjectorInstance: Injector;
 @NgModule({
-  declarations: [AppComponent, ContentNavComponent, DataLoader],
+  declarations: [AppComponent, OverViewComponent, DataLoader],
   imports: [BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
