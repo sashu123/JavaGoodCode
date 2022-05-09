@@ -5,7 +5,7 @@ import { Concept } from '../models/concept';
 import { Overview } from '../models/Overview';
 
 @Component({
-  selector: 'overview',
+  selector: 'app-overview',
   templateUrl: './overview.component.html',
   styleUrls: ['./overview.component.css'],
 })
