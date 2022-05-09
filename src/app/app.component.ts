@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DataLoader } from './data-loader';
 import { Concept } from './models/concept';
 
@@ -7,9 +7,16 @@ import { Concept } from './models/concept';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  subModules: Concept[] = DataLoader.getConcepts();
+export class AppComponent implements OnInit {
+  subModules: Concept[] = [{ name: '', active: false }];
   currentConcept: Concept = AppComponent.getDefaultConcept();
+
+  ngOnInit() {
+    DataLoader.getConcepts().subscribe((data: Concept[]) => {
+      console.log(data);
+      this.subModules = data;
+    });
+  }
 
   static getDefaultConcept(): Concept {
     return { name: 'java8', active: true };

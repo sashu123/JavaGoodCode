@@ -9,14 +9,10 @@ import { Overview } from './models/Overview';
   providedIn: 'root',
 })
 export class DataLoader {
-  static subModules: Concept[] = [
-    { name: 'java8', active: true },
-    { name: 'Collection', active: false },
-    { name: 'Junit', active: false },
-  ];
 
-  static getConcepts():Concept[] {
-    return this.subModules;
+  static getConcepts():Observable<Concept[]> {
+    const httpClient = InjectorInstance.get<HttpClient>(HttpClient);
+    return httpClient.get<Concept[]>('assets/data/concepts.json');
   }
 
   constructor() {}
