@@ -1,0 +1,39 @@
+.container-fluid {
+  margin: 12px 0px 0px 0px;
+}
+ul {
+  padding: 0px;
+
+  background: #d5dce4;
+}
+ul li {
+  list-style: none;
+  padding: 5px;
+  border: 1px solid;
+}
+ul li:first-child {
+  border-bottom: none;
+}
+ul li:last-child {
+  border-top: none;
+}
+
+ul li.active {
+  list-style: none;
+  padding: 5px;
+  background: #b6bfcb;
+  border-right: none;
+  font-weight: bold;
+  border-top: none;
+  border-bottom: none;
+}
+ul li:last-child.active {
+  border-bottom: 1px solid;
+}
+ul li:first-child.active {
+  border-top: 1px solid;
+}
+.col-9 {
+  border: 1px solid;
+  margin-left: -0.5px;
+}
