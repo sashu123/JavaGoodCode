@@ -8,27 +8,28 @@ import { Concept } from './models/concept';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  concepts: Concept[] = [{ name: '', active: false }];
+  concepts: Concept[] = [AppComponent.getDefaultConcept()];
   currentConcept: Concept = AppComponent.getDefaultConcept();
 
   ngOnInit() {
     DataLoader.getConcepts().subscribe((data: Concept[]) => {
       console.log(data);
       this.concepts = data;
+      this.activateClass(this.concepts[0]);
     });
   }
 
   static getDefaultConcept(): Concept {
-    return { name: 'java8', active: true };
+    return { name: '', active: false };
   }
 
-  activateClass(subModule: Concept) {
-    if (subModule.active) {
+  activateClass(concept: Concept) {
+    if (concept.active === true) {
       return;
     }
-    this.currentConcept = subModule;
+    this.currentConcept = concept;
     this.concepts.forEach(function (item) {
-      let isCurrentItem = item.name == subModule.name;
+      let isCurrentItem = item.name == concept.name;
       if (isCurrentItem) {
         item.active = true;
       } else {
