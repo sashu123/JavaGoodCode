@@ -15,7 +15,7 @@ export class AppComponent {
   currentConcept: Concept = AppComponent.getDefaultConcept();
 
   static getDefaultConcept(): Concept {
-    return { name: 'Java8', active: true };
+    return { name: 'java8', active: true };
   }
 
   activateClass(subModule: Concept) {

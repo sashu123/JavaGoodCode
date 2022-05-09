@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AppComponent } from '../app.component';
+import { DataLoader } from '../data-loader';
 import { Concept } from '../models/concept';
+import { Overview } from '../models/Overview';
 
 @Component({
   selector: 'app-content-nav',
@@ -9,8 +11,12 @@ import { Concept } from '../models/concept';
 })
 export class ContentNavComponent implements OnInit {
   @Input() concept: Concept = AppComponent.getDefaultConcept();
-
+  overview: Overview = { title: '', features: [] };
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    DataLoader.getOverview(this.concept.name).subscribe(
+      (data: Overview) => (this.overview = { ...data })
+    );
+  }
 }
